@@ -1,6 +1,11 @@
 import os
+import sys
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+PROJECT_DIR = os.path.join(BASE_DIR, 'fundcountdown')
+
+sys.path.append(PROJECT_DIR)
+
 
 SECRET_KEY = 'xn)#z54)8e-cq(lx_*m&!#q+6+r9et2kntd1=kn^ul!a+94=a7'
 
@@ -17,6 +22,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    # Third-part
+    'django_nose',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -99,8 +107,14 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT ='staticfiles'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 STATICFILES_DIR = (
     os.path.join(BASE_DIR, 'static'),
 )
+STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+
+TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
+NOSE_ARGS = [
+    '--cover-package=core, cash_flow'
+]
