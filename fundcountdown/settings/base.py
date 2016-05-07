@@ -23,6 +23,13 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    # Third-part
+    'djmoney',
+    'django_nose',
+
+    # Custom
+    'fundcountdown.core',
+    'fundcountdown.cash_flow',
 ]
 
 MIDDLEWARE_CLASSES = [
