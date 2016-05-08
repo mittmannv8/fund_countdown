@@ -1,8 +1,7 @@
 from django.conf.urls import url
-
-from fundcountdown.core.views import home
+from django.views.generic import TemplateView
 
 
 urlpatterns = [
-    url(r'^$', home, name='home'),
+    url(r'^$', TemplateView.as_view(template_name='app.html'), name='app'),
 ]
