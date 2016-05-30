@@ -29,6 +29,7 @@ INSTALLED_APPS = [
 
     # Custom
     'fundcountdown.core',
+    'fundcountdown.fund',
     'fundcountdown.cash_flow',
 ]
 
